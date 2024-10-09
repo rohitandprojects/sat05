@@ -437,7 +437,7 @@ const AboutPage = ({ post }) => {
 						{post?.map((item, key) => {
 							return <div key={key} className="card">                
 								{(key != 1) && <div className="card-holder position-relative"><ExportedImage className="position-absolute" src={item?.iconURL} width={724} height={457} alt={item?.name} /></div>}
-								{key === 1 && <div className="card-title w-100"><h2 className="top-btm-bdr position-relative text-center">Event &<br/> Exhibition</h2><img src="/images/advertising_icon.svg" width={100} height={86} className="advertising_icon position-absolute" alt="advertisiment" /></div>}
+								{key === 1 && <div className="card-title w-100"><h2 className="top-btm-bdr position-relative text-center">Advertising</h2><img src="/images/advertising_icon.svg" width={100} height={86} className="advertising_icon position-absolute" alt="advertisiment" /></div>}
 							</div>
 						})}
 					</div>

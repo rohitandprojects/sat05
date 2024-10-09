@@ -70,7 +70,8 @@ export default function Sidebar(){
                 <SidebarBlog></SidebarBlog>
             </li>
             <li><Link href="/backend/admin/categoriesAbout" className={ pathname === '/backend/admin/categoriesAbout' ? "active" : ""}>About</Link></li>
-            <li><Link href="/backend/admin/event-exhibition" className={ pathname === '/backend/admin/event-exhibition' ? "active" : ""}>Event & Exhibition <p>(About & Export page)</p></Link></li>
+            <li><Link href="/backend/admin/advertisement" className={ pathname === '/backend/admin/advertisement' ? "active" : ""}>Advertisement <p>(About Page)</p></Link></li>
+            <li><Link href="/backend/admin/event-exhibition" className={ pathname === '/backend/admin/event-exhibition' ? "active" : ""}>Event & Exhibition <p>(Export page)</p></Link></li>
             <li><Link href="/backend/admin/international-carousel" className={ pathname === '/backend/admin/international-carousel' ? "active" : ""}>International Carousel <p>(Export page)</p></Link></li>
             <li><Link href="#" className="admin-products-link">Media</Link>
                 <ul className="position-relative">
