@@ -85,7 +85,7 @@ const Search = () => {
           <form onSubmit={handleSubmit}>
             <input type="text" onChange={(e) => setInputValue(e.target.value)}
              value={inputValue} className="form-control" placeholder="Search for product in the Satvam World." />
-            <button type="submit" disabled={loading} className={`search-btn position-absolute  ${loading ? 'disabled' : ''}`}><img src="/images/search.svg" width={37} height={37} className="w-100" alt="search" /><span className="position-absolute"><img src="/images/search.svg" width={37} height={37} className="w-100" alt="search" /></span></button>
+            <button type="submit" disabled={loading} className={`search-btn position-absolute  ${loading ? 'disabled' : ''}`}><img src="/images/search.svg" width={37} height={37} className="w-100 d-block h-auto" alt="search" /><span className="position-absolute"><img src="/images/search.svg" width={37} height={37} className="w-100 d-block h-auto" alt="search" /></span></button>
             {loading && <div className="search-loading w-100 text-center"><span className="position-absolute">... loading ...</span></div>}
           </form>
         </div>

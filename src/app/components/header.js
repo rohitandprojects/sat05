@@ -65,15 +65,15 @@ const Header = () => {
     <> 
     <header id="header" className={`position-fixed ${isActive ? 'opened' : ''} ${isSearchActive ? 'search-opened' : ''}`}>
     </header>    
-    <a className="satvam-brand position-fixed d-block" href={'/'}><img src="/images/satvam.svg" loading="eager" width={55} height={80} className="w-100" alt="satvam" /><span className="position-absolute"><img src="/images/satvam.svg" width={55} height={80} className="w-100" alt="satvam" /></span></a>
+    <a className="satvam-brand position-fixed d-block" href={'/'}><img src="/images/satvam.svg" loading="eager" width={55} height={80} className="w-100 h-auto" alt="satvam" /><span className="position-absolute"><img src="/images/satvam.svg" width={55} height={80} className="w-100 h-auto" alt="satvam" /></span></a>
     <div className="hamburger-search position-fixed d-flex">
           <div className="search-main position-relative">
           <Link href="#" onClick={toggleSearchClass} className={`search-link position-relative d-block ${isSearchActive ? 'active' : ''}`}>
-            <img src="/images/search.svg" width={37} height={37} className="search-icon w-100" alt="search" /><div className="searchbars-close-overlay position-absolute"><img src="/images/close.svg" width={37} height={37} className="cloase-icon-overlay w-100" alt="search" /></div>
+            <img src="/images/search.svg" width={37} height={37} className="search-icon d-block w-100 h-auto" alt="search" /><div className="searchbars-close-overlay position-absolute"><img src="/images/close.svg" width={37} height={37} className="cloase-icon-overlay d-block w-100" alt="search" /></div>
           </Link>           
           </div>
           <Link href="#" onClick={toggleClass} className="hamburger d-block position-relative">
-            <img src="/images/hamburger.svg" width={47} height={27} className="w-100" alt="hamburger" />
+            <img src="/images/hamburger.svg" width={47} height={27} className="w-100 d-block h-auto" alt="hamburger" />
             <span className="bars bar1 position-absolute" /><span className="bars bar2 position-absolute" /><span className="bars bar3 position-absolute" />
           </Link>
       </div>
@@ -114,8 +114,8 @@ const Header = () => {
     </div>
     <span className="brand-base position-fixed d-block"><img src="/images/satvam.svg" loading="eager" width={55} height={80} className="w-100" alt="satvam" /></span>
     <div className="hs-base position-fixed d-flex">
-      <img src="/images/search.svg" width={37} height={37} className="search-icon" alt="search" />
-      <img src="/images/hamburger.svg" width={47} height={27} className="w-100" alt="hamburger" />
+      <img src="/images/search.svg" width={37} height={37} className="search-icon d-block h-auto" alt="search" />
+      <img src="/images/hamburger.svg" width={47} height={27} className="w-100 d-block h-auto" alt="hamburger" />
     </div>
     {/* <div className={`search-container position-fixed ${isSearchActive ? 'opened' : ''}`}>
         <div className="search-sub position-absolute">

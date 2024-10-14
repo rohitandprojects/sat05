@@ -31,7 +31,7 @@ html.lenis, html.lenis body {
 
 *{margin:0;padding:0;-webkit-font-smoothing:antialiased;line-height:normal;}
 html{font-size:62.5%;}
-body{margin:0 auto;color:$site-color;position:relative;font-family:$balooBhai;overflow-x:hidden;background-color:$light-grey-color;font-size:2.4rem;background: url("/images/texture-bg.webp") center center repeat;background-size:100% auto}
+body{margin:0 auto;color:$site-color;position:relative;font-family:$balooBhai;overflow-x:hidden;background-color:$light-grey-color;font-size:2.4rem;background:url("/images/texture-bg.webp") center center repeat;background-size:100% auto}
 a:active,a:focus,input:focus,textarea:focus,select,button,.form-control,textarea:hover,.form-control:hover,textarea:active,.form-control:active,textarea:focus,.form-control:focus,button:focus,button:active,button:hover,label:focus,.swiper-button-next,.swiper-button-prev{outline:0px!important;box-shadow:none!important;font-size:2.4rem;}
 a:active,a:focus{outline:expression(hideFocus='true')}
 ::-moz-focus-inner{border:1px solid transparent!important}
@@ -55,6 +55,8 @@ header{z-index:99;padding:0 5.04466631634% 0 5.04466631634%;height:0;}
 .hamburger-search{display:flex;align-items:center;}
 .brand-base,.hs-base{z-index:85;transform:scale(2);background:$red-color;filter: blur(50px) invert(1);mix-blend-mode:color-burn;opacity:1;}
 .brand-base img,.hs-base img{opacity:0;}
+.search-link,.search-btn{width:37px;}
+
 .search-btn{right:10px;top:50%;transform:translateY(-50%);background:none;border:none;position:relative;z-index:9;}
 .search-container{width:100%;left:0px;top:-160px;height:160px;background-color:$red-color;transition:all 0.4s ease-out 0s;z-index:90;}
 .search-sub{top:50%;transform:translateY(-50%);right:13%;width:74%;padding:0.7rem 80px 0.7rem 1rem;position:relative;z-index:9;}
@@ -621,7 +623,7 @@ p{font-family:$balooBhai;font-size:3rem;line-height:4rem;padding-bottom:1.5rem;}
   .content-scroll{transition:all 1.2s ease 0s;}
   ul,li a,.effect div{width:40rem;}
   ul li{position:relative;z-index:9;}
-  ul li a,.effect div{display:block;position:relative;padding:25px 15px 25px 40px;font-size:2.5rem;}
+  ul li a,.effect div{display:block;position:relative;padding:25px 15px 25px 40px;font-size:2.45rem;}
   ul li a span,.effect div span{position:absolute;left:13rem;top:50%;transform:translateY(-50%);white-space:nowrap;display:block;text-transform:capitalize;}
   ul li a img,.effect div img{filter:grayscale(1);width:auto;height:5.5rem;display:block;}
   ul li.active a,ul li:hover a{color:$red-color}
@@ -629,7 +631,7 @@ p{font-family:$balooBhai;font-size:3rem;line-height:4rem;padding-bottom:1.5rem;}
   .effect{left:0;background:rgba($white-color, .5);z-index:-1;border-left:2px solid $red-color;transition:all 0.3s ease-out;}
   .effect div{opacity:0;}
 }
-.left-links:hover,.effect{width:40rem;}
+.left-links:hover,.effect{width:41rem;}
 .left-links:hover{box-shadow:15px 15px 16px rgba(0,0,0,0.1);}
 .international-product-range{
   background:url("/images/texture-bg.webp") left top repeat;padding-top:128px;padding-bottom:130px;}
@@ -1280,6 +1282,35 @@ strong{font-weight:bold;}
 .blog-contetns ul{padding-left:3rem;}
 .blog-contetns ul li{list-style:disc!important;}
 
+
+@media only screen and (min-width:992px) and (-Webkit-min-device-pixel-ratio:1.25)
+{
+  .satvam-brand, .brand-base{width:45px;}
+  .search-link,.search-btn{width:30px;height:30px}
+  .searchbars-close-overlay img{height:30px;}
+  .hamburger{width:40px;height:23px;}
+  
+  .left-links{height:calc(100vh - 274px)}
+  .left-links{width:10rem;padding:4rem 0;} 
+  .left-links .category-sub{top:4rem;bottom:4rem;} 
+  .left-links ul li a, .left-links .effect div{padding:15px 15px 15px 28px;font-size:2rem;}
+  .left-links ul li a img, .left-links .effect div img{height:4.5rem;}
+  .left-links ul li a span, .left-links .effect div span{left:10rem;}
+}
+@media only screen and (min-width:992px) and (-Webkit-min-device-pixel-ratio:1.5)
+{
+  .satvam-brand, .brand-base{width:40px;}
+  .search-link,.search-btn{width:25px;height:25px}
+  .searchbars-close-overlay img{height:25px;}
+  .hamburger{width:35px;height:23px;}
+  
+  .left-links{height:calc(100vh - 228px);top: 15rem;}
+  .left-links{width:10rem;padding:4rem 0;} 
+  .left-links .category-sub{top:4rem;bottom:4rem;} 
+  .left-links ul li a, .left-links .effect div{padding:15px 15px 15px 28px;font-size:2rem;}
+  .left-links ul li a img, .left-links .effect div img{height:4.5rem;}
+  .left-links ul li a span, .left-links .effect div span{left:10rem;}
+}
 
 .popup-hidden{width:768px;display:none;padding:35px}
 .animated-modal {border-radius:4px;overflow:hidden;transform: translateY(-50px);transition:all .7s;}
