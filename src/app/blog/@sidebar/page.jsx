@@ -97,9 +97,10 @@ const toggleSidebar = () => {
         {/* { the_arr.join('/')} */}
         <h3>Categories</h3>
           <ul className="position-relative">
+            <li className={ pathname === '/blog' ? "active" : ""}><Link href={'/blog'}><span>All Categories</span></Link></li>
               {countries?.map((category, index) =>{
                   return (                    
-                    <li key={index} data-category={category?.id} onClick={(e) => handleCategoryClick(category.id, e, category?.name)} className={activeCategory === category?.id ? 'active' : '' || the_arr.join('/') === `/blog/${category?.id}` ? "active" : ""}><Link href={'#'} className={ the_arr.join('/') === `/blog/${category?.id}` ? "active" : ""}><span>{hyphenToSpace(category?.name)}</span></Link></li>                    
+                    <li key={index} data-category={category?.id} onClick={(e) => handleCategoryClick(category.id, e, category?.name)} className={activeCategory === category?.id ? 'active' : '' || the_arr.join('/') === `/blog/${category?.id}` ? "active" : ""}><Link href={'#'} className={ the_arr.join('/') === `/blog/${category?.id}` ? "active" : ""}><span>{hyphenToSpace(category?.name)}</span></Link></li>
                   )
                 }
               )}

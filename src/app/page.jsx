@@ -131,162 +131,162 @@ export default function Home() {
 		sceneOne.to('.cryogenic-mill-overlay', { duration:5,ease: "power1.inOut",opacity:1,delay:-5},'nozel');
 
 		let mill_flag = 1,mill_flag2 = 1,explore_flag = 1;
-	function playPauseMill(param1, param2) {
-		if(mill_flag === 1){
-			console.log('play traditional');			
-			video.play();
-			mill_flag =2;
-		}
-		else{
-			console.log('pause traditional');
-			video.pause();
-			//videos.pause();
-			mill_flag =1;
-		}
-	}
-	let dhanajiruLeft,dhanajiruInterval;
-	let dhanajiruPowder = document.querySelector('.dhanajiru-powder');
-	let thermometer = document.querySelector('.thermometer');
-	function setColor(){
-		 dhanajiruLeft = dhanajiruPowder.getBoundingClientRect().left;	
-		if(dhanajiruLeft > (ww/2)){
-			if(thermometer){
-				thermometer.classList.add('active');
-				clearInterval(dhanajiruInterval);
+		function playPauseMill(param1, param2) {
+			if(mill_flag === 1){
+				console.log('play traditional');			
+				video.play();
+				mill_flag =2;
 			}
-			console.log('thermometer: active');
+			else{
+				console.log('pause traditional');
+				video.pause();
+				//videos.pause();
+				mill_flag =1;
+			}
 		}
-	}
+		let dhanajiruLeft,dhanajiruInterval;
+		let dhanajiruPowder = document.querySelector('.dhanajiru-powder');
+		let thermometer = document.querySelector('.thermometer');
+		function setColor(){
+			dhanajiruLeft = dhanajiruPowder.getBoundingClientRect().left;	
+			if(dhanajiruLeft > (ww/2)){
+				if(thermometer){
+					thermometer.classList.add('active');
+					clearInterval(dhanajiruInterval);
+				}
+				console.log('thermometer: active');
+			}
+		}
 
-	function playPauseCryogenic(param1, param2) {
-		dhanajiruInterval = setInterval(setColor, 1000);
-		
-		if(mill_flag2 == 1){
-			console.log('play cryogenic');
-			if(cryogenic){
-				cryogenic.classList.add('active');
+		function playPauseCryogenic(param1, param2) {
+			dhanajiruInterval = setInterval(setColor, 1000);
+			
+			if(mill_flag2 == 1){
+				console.log('play cryogenic');
+				if(cryogenic){
+					cryogenic.classList.add('active');
+				}
+				//traditional_vid.play();
+				mill_flag2 =2;
 			}
-			//traditional_vid.play();
-			mill_flag2 =2;
-		}
-		else{
-			console.log('pause cryogenic');
-			if(cryogenic){
-				cryogenic.classList.remove('active');
+			else{
+				console.log('pause cryogenic');
+				if(cryogenic){
+					cryogenic.classList.remove('active');
+				}
+				if(thermometer){
+					thermometer.classList.remove('active');
+				}
+				clearInterval(dhanajiruInterval);
+				//traditional_vid.pause();
+				mill_flag2 =1;
 			}
-			if(thermometer){
-				thermometer.classList.remove('active');
+			console.log('cryogenic: '+ param1, param2);
+		}
+		function explorerClass(param1, param2) {
+			if(explore_flag == 1){
+				console.log('explore link active');
+				explore.classList.add('active');
+				explore_flag =2;
 			}
-			clearInterval(dhanajiruInterval);
-			//traditional_vid.pause();
-			mill_flag2 =1;
-		}
-		console.log('cryogenic: '+ param1, param2);
-	}
-	function explorerClass(param1, param2) {
-		if(explore_flag == 1){
-			console.log('explore link active');
-			explore.classList.add('active');
-			explore_flag =2;
-		}
-		else{
-			console.log('explore link deactive');
-			explore.classList.remove('active');
-			explore_flag =1;
-		}
-		console.log('cryogenic: '+ param1, param2);
-	}
-	let scrollImages = (canvasId, texts, imageFolder) => {
-		ScrollTrigger.matchMedia({
-		  // desktop text timeline
-		  "(min-width: 800px)": function () {
-		  },
-		  // mobile text timeline
-		  "(max-width: 799px)": function () {
-		  },
-		  all: function () {
-			const canvasIdWithoutHash = canvasId.substring(1);
-			const canvas = document.getElementById('fallingPowder');
-			const canvas2 = document.getElementById('fallingPowder2');
-			const context = canvas.getContext("2d");
-			const context2 = canvas2.getContext("2d");
-			canvas.width = 255;
-			canvas.height = 390;
-			canvas2.width = 255;
-			canvas2.height = 390;
-			const frameCount = 43;
-		  const currentFrame = index => (
-			  `slides/nozel/${(index + 1).toString().padStart(0, '0')}.webp`
-		  );      
-			const images = [];
-			const products = {
-			  frame: 0
-			};
-			const products2 = {
-			  frame: 0
-			};
-			for (let i = 0; i < frameCount; i++){
-			  const img = new Image();
-			  img.src = currentFrame(i);
-			  images.push(img);
+			else{
+				console.log('explore link deactive');
+				explore.classList.remove('active');
+				explore_flag =1;
 			}
-			sceneOne.to(products,{
-			  duration:5,
-			  frame: frameCount - 1,
-			  snap: "frame",
-			  onUpdate: render,
-			  delay:0,
-			  onComplete(){
-				  console.log('each el done')
-			  },
-			}, ">");
-			sceneOne.to('.box-masala-subsub', { duration:4,ease: "power1.inOut",left:'0%',delay:1},'boxBelt');
-			sceneOne.to('.belt-strip-subsub', { duration:4,ease: "power1.inOut",left:'-200%',delay:1},'boxBelt');
-			sceneOne.to(products2, {
-			  duration:5,
-			  frame: frameCount - 1,
-			  snap:"frame",
-			  onUpdate:render,
-			  delay:0
+			console.log('cryogenic: '+ param1, param2);
+		}
+		let scrollImages = (canvasId, texts, imageFolder) => {
+			ScrollTrigger.matchMedia({
+			// desktop text timeline
+			"(min-width: 800px)": function () {
+			},
+			// mobile text timeline
+			"(max-width: 799px)": function () {
+			},
+			all: function () {
+				const canvasIdWithoutHash = canvasId.substring(1);
+				const canvas = document.getElementById('fallingPowder');
+				const canvas2 = document.getElementById('fallingPowder2');
+				const context = canvas.getContext("2d");
+				const context2 = canvas2.getContext("2d");
+				canvas.width = 255;
+				canvas.height = 390;
+				canvas2.width = 255;
+				canvas2.height = 390;
+				const frameCount = 43;
+			const currentFrame = index => (
+				`slides/nozel/${(index + 1).toString().padStart(0, '0')}.webp`
+			);      
+				const images = [];
+				const products = {
+				frame: 0
+				};
+				const products2 = {
+				frame: 0
+				};
+				for (let i = 0; i < frameCount; i++){
+				const img = new Image();
+				img.src = currentFrame(i);
+				images.push(img);
+				}
+				sceneOne.to(products,{
+				duration:5,
+				frame: frameCount - 1,
+				snap: "frame",
+				onUpdate: render,
+				delay:0,
+				onComplete(){
+					console.log('each el done')
+				},
+				}, ">");
+				sceneOne.to('.box-masala-subsub', { duration:4,ease: "power1.inOut",left:'0%',delay:1},'boxBelt');
+				sceneOne.to('.belt-strip-subsub', { duration:4,ease: "power1.inOut",left:'-200%',delay:1},'boxBelt');
+				sceneOne.to(products2, {
+				duration:5,
+				frame: frameCount - 1,
+				snap:"frame",
+				onUpdate:render,
+				delay:0
+				});
+				sceneOne.to('.tumeric-powder', { duration:5,ease: "power1.inOut",top:'0%',delay:1});
+				sceneOne.to('.tumeric-powder-content', { duration:0,ease: "power1.inOut",y:'22vh',delay:-3.5});
+				sceneOne.to('.tumeric-powder-content h3', { duration:5,ease: "power2.inOut",y:'0vh',delay:-4});
+				sceneOne.to('.tumeric-powder-content h2', { duration:5,ease: "power2.inOut",y:'0vh',delay:-4.8});
+				sceneOne.to('.home-footer img', { duration:4,ease: "power2.inOut",y:'0vh',opacity:1,delay:-5});	  
+				sceneOne.to('.tumeric-powder-img', { duration:3,ease: "power1.inOut",top:'-200px',delay:0});
+				sceneOne.to('.tumeric-base-white', { duration:3,ease: "power1.inOut",opacity:1,delay:-1});
+				sceneOne.to('.tumeric-powder-content', { duration:3,ease: "power1.inOut",y:'0vh',delay:-0.5},'titleProduct');
+				sceneOne.to('.lets-explorer .satvam-circle', { duration:1,ease: "power1.inOut",opacity:1,rotationX:'0deg',rotateY:'0deg',scale:1,perspective:'100px',delay:1},'titleProduct').call(explorerClass, ['rohit', 'dubariya'], ">-0.25");			
+				sceneOne.set({},{},"+=1");
+				images[0].onload = render;
+				function render() {
+				context.clearRect(0, 0, canvas.width, canvas.height);
+				context2.clearRect(0, 0, canvas2.width, canvas2.height);
+				context.drawImage(images[products.frame], 0, 0, canvas.width, canvas.height);
+				context2.drawImage(images[products2.frame], 0, 0, canvas2.width, canvas2.height);
+				if (products.frame){
+				}
+				}
+			}
 			});
-			sceneOne.to('.tumeric-powder', { duration:5,ease: "power1.inOut",top:'0%',delay:1});
-			sceneOne.to('.tumeric-powder-content', { duration:0,ease: "power1.inOut",y:'22vh',delay:-3.5});
-			sceneOne.to('.tumeric-powder-content h3', { duration:5,ease: "power2.inOut",y:'0vh',delay:-4});
-			sceneOne.to('.tumeric-powder-content h2', { duration:5,ease: "power2.inOut",y:'0vh',delay:-4.8});
-			sceneOne.to('.home-footer img', { duration:4,ease: "power2.inOut",y:'0vh',opacity:1,delay:-5});	  
-			sceneOne.to('.tumeric-powder-img', { duration:3,ease: "power1.inOut",top:'-200px',delay:0});
-			sceneOne.to('.tumeric-base-white', { duration:3,ease: "power1.inOut",opacity:1,delay:-1});
-			sceneOne.to('.tumeric-powder-content', { duration:3,ease: "power1.inOut",y:'0vh',delay:-0.5},'titleProduct');
-			sceneOne.to('.lets-explorer .satvam-circle', { duration:1,ease: "power1.inOut",opacity:1,rotationX:'0deg',rotateY:'0deg',scale:1,perspective:'100px',delay:1},'titleProduct').call(explorerClass, ['rohit', 'dubariya'], ">-0.25");			
-			sceneOne.set({},{},"+=1");
-			images[0].onload = render;
-			function render() {
-			  context.clearRect(0, 0, canvas.width, canvas.height);
-			  context2.clearRect(0, 0, canvas2.width, canvas2.height);
-			  context.drawImage(images[products.frame], 0, 0, canvas.width, canvas.height);
-			  context2.drawImage(images[products2.frame], 0, 0, canvas2.width, canvas2.height);
-			  if (products.frame){
-			  }
-			}
-		  }
+		};
+		scrollImages(
+			"#product-ezgif",
+		);
+		ScrollTrigger.create({
+			animation: sceneOne,
+			trigger: '.trigger', // Use any trigger you prefer
+			pin: true,
+			start: 'top top', // Trigger animation when the top of the trigger element reaches the center of the viewport
+			end: '+=40000', // +=45000 Trigger animation when the bottom of the trigger element reaches the center of the viewport
+			scrub: true, // Smoothly animate when scrolling
+			markers: false, // Enable debug markers
 		});
-	  };
-	  scrollImages(
-		"#product-ezgif",
-	  );
-	ScrollTrigger.create({
-		animation: sceneOne,
-		trigger: '.trigger', // Use any trigger you prefer
-		pin: true,
-		start: 'top top', // Trigger animation when the top of the trigger element reaches the center of the viewport
-		end: '+=40000', // +=45000 Trigger animation when the bottom of the trigger element reaches the center of the viewport
-		scrub: true, // Smoothly animate when scrolling
-		markers: false, // Enable debug markers
-	});
-	// Dispose the ScrollTrigger on component unmount
-    return () => {
-		ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-	  };
+		// Dispose the ScrollTrigger on component unmount
+		return () => {
+			ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+		};
 	}); //,[] Run once on component mount
   return (
       <section className="section wh-100 trigger scene-one">

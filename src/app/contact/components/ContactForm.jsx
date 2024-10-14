@@ -105,7 +105,7 @@ const ContactForm = () => {
             <div className="form-group">
               <label className="form-label"><strong>Department</strong></label>
               <select className="form-control form-select" name="department" id="department" required onChange={handleInputChange}>
-                  <option value="" selected>-- Select Department --</option>
+                  <option value="">-- Select Department --</option>
                   <option value="Branding Department">Branding Department</option>
                   <option value="Export Department">Export Department</option>
                   <option value="Export Department">Export Department</option>

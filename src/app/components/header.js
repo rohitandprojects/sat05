@@ -4,6 +4,10 @@ import Image from "next/image";
 import ExportedImage from "next-image-export-optimizer";
 import Nav from './nav';
 import Link from 'next/link';
+import Search from './search';
+//import { useHistory } from "react-dom";
+//import { useRouter } from 'next/navigation';
+
 import SocialMedia from './social';
 const links = [
   {
@@ -36,6 +40,7 @@ const links = [
   }
 ]
 const Header = () => {
+  
   const [isActive, setIsActive] = useState(false);
   const toggleClass = (e) => {
     e.preventDefault();
@@ -46,11 +51,21 @@ const Header = () => {
     e.preventDefault();
     setSearchIsActive(!isSearchActive);
   };
+
+  //const history = useNavigate();
+  /*const router = useRouter();
+
+  const [search, setSearch] = useState("");
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    router.push(`/search?name=${search}`);
+    setSearch("");
+  }*/
    return (
     <> 
     <header id="header" className={`position-fixed ${isActive ? 'opened' : ''} ${isSearchActive ? 'search-opened' : ''}`}>
-    </header> 
-    <a className="satvam-brand position-fixed d-block" href={'/'}><img src="/images/satvam.svg" loading="eager" width={55} height={80} className="w-100" alt="satvam" /><span className="position-absolute"><img src="/images/satvam.svg" width={55} height={80} className="w-100" alt="satvam" /></span></a> 
+    </header>    
+    <a className="satvam-brand position-fixed d-block" href={'/'}><img src="/images/satvam.svg" loading="eager" width={55} height={80} className="w-100" alt="satvam" /><span className="position-absolute"><img src="/images/satvam.svg" width={55} height={80} className="w-100" alt="satvam" /></span></a>
     <div className="hamburger-search position-fixed d-flex">
           <div className="search-main position-relative">
           <Link href="#" onClick={toggleSearchClass} className={`search-link position-relative d-block ${isSearchActive ? 'active' : ''}`}>
@@ -95,12 +110,23 @@ const Header = () => {
         </div>
     </div>
     <div className={`search-container position-fixed ${isSearchActive ? 'opened' : ''}`}>
+      <Search></Search>
+    </div>
+    <span className="brand-base position-fixed d-block"><img src="/images/satvam.svg" loading="eager" width={55} height={80} className="w-100" alt="satvam" /></span>
+    <div className="hs-base position-fixed d-flex">
+      <img src="/images/search.svg" width={37} height={37} className="search-icon" alt="search" />
+      <img src="/images/hamburger.svg" width={47} height={27} className="w-100" alt="hamburger" />
+    </div>
+    {/* <div className={`search-container position-fixed ${isSearchActive ? 'opened' : ''}`}>
         <div className="search-sub position-absolute">
-          <input className="form-control" placeholder="Search for anything in the Satvam World." />
-          <button className="search-btn position-absolute"><img src="/images/search.svg" width={37} height={37} className="w-100" alt="search" /><span className="position-absolute"><img src="/images/search.svg" width={37} height={37} className="w-100" alt="search" /></span></button>
+          <form onSubmit={handleSearchSubmit}>
+            <input type="text" onChange={(e) => setSearch(e.target.value)}  className="form-control" placeholder="Search for anything in the Satvam World." />
+            <button className="search-btn position-absolute"><img src="/images/search.svg" width={37} height={37} className="w-100" alt="search" /><span className="position-absolute"><img src="/images/search.svg" width={37} height={37} className="w-100" alt="search" /></span></button>
+          </form>
         </div>
-      </div>
+      </div> */}
     </>
-  )}
+  )
+}
 
 export default Header

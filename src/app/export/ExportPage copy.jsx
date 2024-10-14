@@ -1,7 +1,7 @@
 "use client";
 import ExportedImage from "next-image-export-optimizer";
 import Link from 'next/link';
-import { useEffect, useLayoutEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 // import { Swiper, SwiperSlide } from 'swiper/react';
 // import 'swiper/css';
 // import 'swiper/css/grid';
@@ -21,33 +21,27 @@ const ExportPage = ({ post, interCarousel }) => {
 	const worldMapRef = useRef(false);
 	const interestedRef = useRef(false);
 	const interestedCatelogueRef = useRef(false);
-	useLayoutEffect(() => {
-
-		if (typeof window !== "undefined") {
-			gsap.timeline({
-				scrollTrigger: {
-				trigger: cargoRef.current,
-				start: 'top top',
-					end: '+=700', 
-					pin: true,
-					scrub: true,
-					markers:false,
-			},
-			}).fromTo(
-				cargoShipRef.current,
-				{ marginLeft:'-15%' },
-				{ marginLeft:'0%', duration:5}
-			).fromTo(
-				cargoTitleRef.current,
-				{ marginLeft:'-10%', opacity:0 },
-				{ marginLeft:'0%', duration:5,opacity:1,delay:-3}
-			);
-		}
-		
-	  }, []);
 	useEffect(() => {
 		window.scrollTo(0, 0);
-		
+		// Trigger animation on scroll
+		gsap.timeline({
+			scrollTrigger: {
+			trigger: cargoRef.current,
+			start: 'top top',
+				end: '+=700', 
+				pin: true,
+				scrub: true,
+				markers:false,
+		},
+		}).fromTo(
+			cargoShipRef.current,
+			{ marginLeft:'-15%' },
+			{ marginLeft:'0%', duration:5}
+		).fromTo(
+			cargoTitleRef.current,
+			{ marginLeft:'-10%', opacity:0 },
+			{ marginLeft:'0%', duration:5,opacity:1,delay:-3}
+		);
 		// Trigger a class name change on scroll
 		ScrollTrigger.create({
 			trigger: worldMapRef.current,

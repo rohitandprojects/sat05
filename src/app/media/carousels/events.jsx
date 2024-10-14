@@ -7,12 +7,13 @@ import 'swiper/css';
 import 'swiper/css/grid';
 import 'swiper/css/pagination';
 import { Pagination, Mousewheel, A11y } from 'swiper/modules';
+import Loading from "@/app/components/Loader";
 /*import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";*/
 
 export default function CategoryFirstDomestic() {
   const { data, error, isLoading } = useCategories();
-  if (isLoading) return <div className="loadidng-media">...loading...</div>
+  if (isLoading) return <div className="loadidng-media"><Loading></Loading></div>
   if (data?.length){
       return <div className="mediatvc-carousel btmToTp2">
       <Swiper

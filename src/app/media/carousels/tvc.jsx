@@ -10,6 +10,7 @@ import 'swiper/css/pagination';
 import { Pagination, Mousewheel, A11y } from 'swiper/modules';
 import { Fancybox } from '@fancyapps/ui';
 import "@fancyapps/ui/dist/fancybox/fancybox.css";  // Import the Fancybox styles
+import Loading from "@/app/components/Loader";
 /*import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";*/
 
@@ -24,7 +25,7 @@ export default function TvcFilm() {
           };
     },[])
   const { data, error, isLoading } = useCategories();
-  if (isLoading) return <div className="loadidng-media">...loading...</div>
+  if (isLoading) return <div className="loadidng-media"><Loading></Loading></div>
   if (data?.length){
       return <div className="mediatvc-carousel btmToTp2">
       <Swiper

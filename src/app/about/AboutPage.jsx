@@ -6,7 +6,6 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import CategoryFirstDomestic from "../product/@category_first_domestic/page";
 import CategoryFirstInternational from "../product/@category_first_international/page";
-import Image from 'next/image';
 import ExportedImage from "next-image-export-optimizer";
 import Link from 'next/link';
 import VideoAbout from "./video";
